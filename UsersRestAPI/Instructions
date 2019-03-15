@@ -1,0 +1,40 @@
+Create a database where Hibernate will create tables to work on. 
+CREATE DATABASE  IF NOT EXISTS `users_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `users_db`;
+After the first running it will show the recently created tables.
+SHOW tables; 
+
+
+
+==Invoking services using Postman tool==
+Creating a user
+URL: http://localhost:8080/api/v1/users/create_user
+HTTPMethod: POST 
+RequestBody:
+{
+  	"firstName":"Name",
+	"lastName": "LastName",
+	"dateOfBirth": "1985-07-26"
+}
+
+Getting all users (only active users)
+URL: http://localhost:8080/api/v1/users/get_all_users
+HTTPMethod: GET
+
+Getting user by Id
+URL: http://localhost:8080/api/v1/users/get_user/{id}
+HTTPMethod: GET
+
+Update user
+URL: http://localhost:8080/api/v1/users/update_user/{id}
+HTTPMethod: PUT
+RequestBody:
+{
+  	"firstName":"NameChanged",
+	"lastName": "LastNameChanged",
+	"dateOfBirth": "1986-08-27"
+}
+
+Deleting user (setting as INACTIVE)
+URL:http://localhost:8080/api/v1/users/delete_user/{id}
+HTTPMethod: DELETE
